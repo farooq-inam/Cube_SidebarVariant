@@ -1,0 +1,15 @@
+.related-products {
+  display: block;
+}
+
+.related-products__heading {
+  margin: 0 0 3rem;
+  text-align:center;
+}
+
+.related-products hr{
+      margin: 3rem 0;
+}
+.relatedAndColored{
+  border-radius:25px;
+}

@@ -1,0 +1,92 @@
+<div class="mainIne">
+    <div class="theSlider">
+      {% for block in section.blocks %}
+        {%- assign img_url = block.settings.theImg | img_url: 'master'  -%}
+        {%- assign img_url2 = block.settings.theImg2 | img_url: 'master' -%}
+        <div class="singleItem">
+            <a href="{{ block.settings.banLink }}">
+                <img src="https:{{ img_url }}" data-src="{{ img_url }}" class="web_img" alt="">
+                <img src="https:{{ img_url2 }}" data-src="{{ img_url2 }}" class="mob_img" alt="">
+            </a>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Home Banner",
+    "settings": [],
+    "blocks": [
+      {
+        "name":"A Slide",
+        "type":"image_picker",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"theImg",
+            "label":"PC Banner"
+          },
+          {
+            "type":"image_picker",
+            "id":"theImg2",
+            "label":"Mobile Banner"
+          },
+          {
+            "type":"url",
+            "id":"banLink",
+            "label":"Banner's Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+      .slick-slide img{
+        margin-inline: auto;
+        height:auto;
+        max-width:100%;
+    }
+    .slick-dots li{
+        display: inline-block;
+    font-size: 0px;
+    margin: 0 7px;
+    width: 12px;
+    height: 12px;
+    letter-spacing: normal;
+    }
+    .mainIne{
+        height:30em;  
+        width: 100%;
+    }
+    .slick-dots li button:before{
+        font-size:14px;
+    }
+    .slick-dots li.slick-active button:before{
+        color: #2EBE9C;
+    }
+    .mob_img{
+        display: none !important;
+    }
+    @media (width < 768px) {
+        .web_img{
+            display: none !important;
+        }
+        .mob_img{
+            display: block !important;
+        }
+    }
+{% endstylesheet %}
+
+{% javascript %}
+          $(".theSlider").slick({ 
+            dots: false,
+            autoplay: true,
+            autoplaySpeed: 4000,  
+            arrows: false,
+        })
+{% endjavascript %}

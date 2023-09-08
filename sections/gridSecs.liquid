@@ -1,0 +1,471 @@
+<div>
+  <h2 class="topHead sevs {% if settings.animations_reveal_on_scroll %} scroll-trigger  animate--slide-in{% endif %}">FEATURED PRODUCTS</h2>
+</div>
+    {% assign product1 = section.settings.theProduct1 %}
+    {% assign product2 = section.settings.theProduct2 %}
+    {% assign product3 = section.settings.theProduct3 %}
+    {% assign product4 = section.settings.theProduct4 %}
+    {% assign product5 = section.settings.theProduct5 %}
+    <div class="containerAZ {% if settings.animations_reveal_on_scroll %} scroll-trigger  animate--slide-in{% endif %}">
+        <a href="{{ product1.url }}" class="div1AZ {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <div>
+                <img src="{{ product1.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ1 Azz1">{{ product1.title }} </p><br>
+                <p class="paraAZ2">Price:<span style="color: red;font-size: 16px;">{{ product1.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product2.url }}" class="div1AZ {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <div>
+                <div class="goldivAZ"></div>
+                <img src="{{ product2.featured_image | img_url: "medium" }}" id="img2AZ">
+                <p class="paraAZ1 Azz2">{{ product2.title }}</p>
+                <p class="paraAZ2">Price: <span style="color: red;font-size: 16px;">{{ product2.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product3.url }}" class="div1AZ {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <div>
+                <img src="{{ product3.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ1 Azz3">{{ product3.title }}</p>
+                <p class="paraAZ2">Price: <span style="color: red;font-size: 16px;">{{ product3.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product4.url }}" class="div1AZ {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <div>
+                <img src="{{ product4.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ1 Azz4">{{ product4.title }}</p>
+                <p class="paraAZ2">Price: <span style="color: red;font-size: 16px;">{{ product4.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product5.url }}" class="div1AZ {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <div>
+                <img src="{{ product5.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ1 Azz5">{{ product5.title }}</p>
+                <p class="paraAZ2">Price: <span style="color: red;font-size: 16px;">{{ product5.price | money }}</span></p>
+            </div>
+        </a>
+    </div>
+<!-- <div class="containerAZ">
+        <a href="{{ product1.url }}" class="div1AZ">
+            <div>
+                <img src="{{ product1.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ">{{ product1.title }}<br> <span style="color: red;"> {{ product1.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product2.url }}" class="div2AZ">
+            <div>
+                <div class="goldivAZ"></div>
+                <img src="{{ product2.featured_image | img_url: "medium" }}" id="img2AZ">
+                <p class="paraAZ">{{ product2.title }} <br> <span style="color: red;"> {{ product2.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product3.url }}" class="div3AZ">
+            <div>
+                <img src="{{ product3.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ">{{ product3.title }} <br> <span style="color: red;"> {{ product3.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product4.url }}" class="div4AZ">
+            <div>
+                <img src="{{ product4.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ">{{ product4.title }} <br> <span style="color: red;">{{ product4.price | money }}</span></p>
+            </div>
+        </a>
+        <a href="{{ product5.url }}" class="div5AZ">
+            <div>
+                <img src="{{ product5.featured_image | img_url: "medium" }}" id="img1AZ">
+                <p class="paraAZ">{{ product5.title }}<br> <span style="color: red;">{{ product5.price | money }}</span></p>
+            </div>
+        </a>
+    </div> -->
+
+    
+{% schema %}
+  {
+    "name": "gridSecs",
+    "settings": [
+      {
+        "type":"product",
+         "id":"theProduct1",
+         "label":"Select The Product."
+      },
+      {
+        "type":"product",
+         "id":"theProduct2",
+         "label":"Select The Product."
+      },
+      {
+        "type":"product",
+         "id":"theProduct3",
+         "label":"Select The Product."
+      },
+      {
+        "type":"product",
+         "id":"theProduct4",
+         "label":"Select The Product."
+      },
+      {
+        "type":"product",
+         "id":"theProduct5",
+         "label":"Select The Product."
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+.containerAZ {
+    width: 96.2%;
+    height: 650px;
+    border: 1px solid transparent;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+}
+
+.div1AZ{
+    overflow: hidden;
+  border:1px solid #000;
+}
+
+.div1AZ:nth-child(1) {
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    position: relative;
+    color: #000;
+    box-sizing: border-box;
+}
+
+#img1AZ {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: 100% 100%;
+}
+
+.paraAZ1{
+    position: absolute;
+    font-size: 18px;
+    left: 1.9vw;
+    /* top: 0.8vw; */
+    line-height: 1.3;
+}
+
+.paraAZ2{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    bottom: .4vw;
+    left: 1.9vw;
+    color: #525050;
+    line-height: 1.2;
+}
+
+.paraAZ {
+    width: 100%;
+    background-image: linear-gradient(to right, #fff, #3A4B5B);
+    position: absolute;
+    /* bottom: -66px; */
+    bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    transition: bottom 1s;
+}
+
+/* .div1AZ:hover .paraAZ{
+    bottom: 0px;
+} */
+
+.div1AZ:nth-child(2) {
+    background-color: #E9EEFA;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    color: #000;
+}
+
+#img2AZ {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 12%;
+    right: 6vw;
+    object-fit: cover;
+}
+
+.goldivAZ {
+    width: 250px;
+    height: 250px;
+    background-color: #CDDCFF;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    border-radius: 50%;
+}
+
+.div1AZ:nth-child(3) {
+    background-color: purple;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    position: relative;
+    box-sizing: border-box;
+    color: #000;
+}
+
+.div1AZ:nth-child(4) {
+    background-color: pink;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    box-sizing: border-box;
+    position: relative;
+    color: #000;
+}
+
+.div1AZ:nth-child(5) {
+    background-color: hotpink;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    box-sizing: border-box;
+    position: relative;
+    color: #000;
+}
+  /* @media screen and (max-width: 1480px) {
+    .Azz1{
+        background-color: rgba(250, 226, 226, 0.7);
+        backdrop-filter: blur(3px);
+        border-radius: 50%;
+    }
+    .Azz2{
+        background-color: rgba(233, 238, 250, 0.7);
+        backdrop-filter: blur(3px);
+        border-radius: 60%;
+    }
+    .Azz3{
+        background-color: rgba(244, 237, 253, 0.7);
+        backdrop-filter: blur(3px);
+        border-radius: 60%;
+    }
+    .Azz4{
+        background-color: rgba(251, 243, 222, 0.7);
+        backdrop-filter: blur(3px);
+        border-radius: 60%;
+    }
+    .Azz5{
+        background-color: rgba(233, 251, 255, 0.7);
+        backdrop-filter: blur(3px);
+        border-radius: 60%;
+    }
+}
+ */
+
+@media screen and (max-width: 1450px) {
+    .containerAZ {
+        grid-gap: 30px 25px;
+    }
+}
+
+@media screen and (max-width: 1267px) {
+    .containerAZ {
+        height: 600px;
+        grid-gap: 20px 15px;
+    }
+}
+
+@media screen and (max-width: 1222px) {
+    .containerAZ {
+        grid-gap: 15px 10px;
+        height: 500px;
+        margin: 20px;
+    }
+
+    #img2AZ {
+        width: 300px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .containerAZ {
+        height: 1300px;
+        grid-gap: 20px 10px;
+        grid-template-columns: 1fr 2px 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .div1AZ:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+
+    .div1AZ:nth-child(2) {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 9;
+        z-index: 1;
+    }
+
+    #img2AZ {
+        width: 400px;
+        height: auto;
+    }
+
+    .div1AZ:nth-child(3) {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+
+    .div1AZ:nth-child(4) {
+        background-color: pink;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 9;
+        grid-row-end: 12;
+    }
+
+    .div1AZ:nth-child(5) {
+        background-color: hotpink;
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 9;
+        grid-row-end: 12;
+    }
+
+    .start{
+        width: 90%;
+        height: 1000px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 891px) {
+    .start{
+        width: 65%;
+        height: 1400px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+    }
+}
+
+@media screen and (max-width: 718px) {
+    .start{
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .containerAZ {  
+        height: auto;
+        margin: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 400px 400px 600px 400px 400px;
+    }
+
+    .div1AZ:nth-child(1) {
+        background-color: red;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        overflow: hidden;
+    }
+
+    .div1AZ:nth-child(2) {
+        background-color: #E9EEFA;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    #img2AZ {
+        width: 390px;
+        height: auto;
+    }
+
+    .div1AZ:nth-child(3) {
+        background-color: purple;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .div1AZ:nth-child(4) {
+        background-color: pink;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+
+    .div1AZ:nth-child(5) {
+        background-color: hotpink;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 7;
+    }
+
+}
+
+@media screen and (max-width: 625px) {
+    .start{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .start{
+        width: 50%;
+        height: 2700px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .start{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #img2 {
+        width: 260px;
+        height: auto;
+        top: 20%;
+    }
+    .start{
+        width: 70%;
+    }
+}
+.sevs{
+  margin-top:5em !important;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

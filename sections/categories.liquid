@@ -1,0 +1,149 @@
+  <div class="vamBam">
+    <h2 class="topHead {% if settings.animations_reveal_on_scroll %} scroll-trigger  animate--slide-in{% endif %}">SHOP DEALS</h2>
+    <hr>
+      <div class="new {% if settings.animations_reveal_on_scroll %} scroll-trigger  animate--slide-in{% endif %}">
+        {% for block in section.blocks %}
+          <div class="itemz {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              <a href="{{ block.settings.catLink }}" class="clickable">
+                  <div class="imgContainer" style="background-color:{{ block.settings.bgColor }};">
+                      <img src="{{ block.settings.theImg | img_url: "" }}" alt="">
+                  </div>
+                  <div class="itemz-text">
+                      {{ block.settings.catName }}
+                  </div>
+              </a>
+          </div>
+        {% endfor %}
+      </div>    
+  </div>
+
+<style>
+    /* .vamBam{
+      margin-top:5em;
+    } */
+  .new {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    margin-bottom:2em;
+}
+  /* .vamBam{
+    width:90%;
+    margin-inline:auto;
+  } */
+.clickable{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.imgContainer {
+    background-color: #EAD1FF;
+    padding: 1em;
+    border-radius: 50%;
+    padding: 1.5em;
+}
+.itemz-text {
+    color: #000;
+}
+.slick-prev:before, .slick-next:before{
+    color: #000;
+}
+  .slick-prev{
+    left:-10px;
+  }
+  .slick-next{
+    right:-10px;
+  }
+  .topHead{
+    text-align:center;
+    font-weight:bold;
+    margin-top: 2em;
+  }
+  hr{
+    margin:4rem 3rem;
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Landing Categories",
+    "settings": [],
+    "blocks": [
+      {
+        "name":"A Category",
+        "type":"image_picker",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"theImg",
+            "label":"Category's Image"
+          },
+          {
+            "type":"url",
+            "id":"catLink",
+            "label":"Category's Link"
+          },
+          {
+            "type":"text",
+            "id":"catName",
+            "label":"Category's Name"
+          },
+          {
+            "type":"color",
+            "id":"bgColor",
+            "label":"Background Color"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+  
+         $('.new').slick({
+            infinite: true,
+            slidesToShow: 7,
+            arrows: false,
+            slidesToScroll: 2,
+            responsive: [
+                {
+                breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        infinite: true
+                    }
+                },
+                {
+                breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                breakpoint: 320,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+               
+            ]
+        });
+{% endjavascript %}
